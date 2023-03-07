@@ -22,10 +22,19 @@ class AuthorTest {
     }
 
     @Test
-    void test_newBook_increase_numberOfBooks() {
+    void test_newBook_increase_numberOfBooksTo1() {
         String title = "NumberOne";
         Book firstBook = author.newBook(title);
         int expectedNumber = 1;
+
+        Assertions.assertEquals(expectedNumber, author.numberOfBooks);
+    }
+
+    @Test
+    void test_newBook_increase_numberOfBooksTo2() {
+        Book firstBook = author.newBook("First");
+        Book secondtBook = author.newBook("Second");
+        int expectedNumber = 2;
 
         Assertions.assertEquals(expectedNumber, author.numberOfBooks);
     }
